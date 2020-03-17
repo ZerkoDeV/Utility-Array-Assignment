@@ -4,16 +4,16 @@ import java.util.Arrays;
 public class MyUtilities {
 
 	public static void splitArray(int[] arr) {
-		int highest = arr[0],secondHighest = arr[0],highestIndex = 0;
+		int high = arr[0],second = arr[0],highestIndex = 0;
         for(int i=0;i<arr.length;i++){
-            if(arr[i] > highest){
-                highest = arr[i];
+            if(arr[i] > high){
+                high = arr[i];
                 highestIndex = i;
             }
         }
         for(int i=0;i<arr.length;i++){
-            if(arr[i] > secondHighest && arr[i] < highest){
-                secondHighest = arr[i];
+            if(arr[i] > second && arr[i] < high){
+                second = arr[i];
             }
         }
         int[] newArray = new int[arr.length+1];
@@ -22,9 +22,9 @@ public class MyUtilities {
             if(reached){
                 newArray[i] = arr[i-1];
             }else if(i == highestIndex){
-                newArray[i] = secondHighest;
+                newArray[i] = second;
                 i++;
-                newArray[i] = highest-secondHighest;
+                newArray[i] = high-second;
                 reached = true;
             }else{
                 newArray[i] = arr[i];
